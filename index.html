@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Tax Revenue Collection Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Form Container -->
+    <div class="mx-auto p-6 md:p-8">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">
+        Income Tax Revenue Collection Form
+      </h1>
+      <form id="incomeTaxForm" class="bg-white p-6 rounded-lg shadow-md">
+        <!-- Personal Information Section -->
+        <section class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Personal Information</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div>
+              <label for="fullName" class="block font-medium">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+            <div>
+              <label for="nid" class="block font-medium">NID Number</label>
+              <input
+                type="text"
+                id="nid"
+                name="nid"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <span id="nidError" class="text-red-500 hidden"
+                >Please enter a valid NID.</span
+              >
+            </div>
+            <div>
+              <label for="email" class="block font-medium">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <span id="emailError" class="text-red-500 hidden"
+                >Please enter a valid email.</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Income Details Section -->
+        <section class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Income Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div>
+              <label for="annualSalary" class="block font-medium"
+                >Annual Salary</label
+              >
+              <input
+                type="number"
+                step="0.01"
+                id="annualSalary"
+                name="annualSalary"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+            <div>
+              <label for="additionalIncome" class="block font-medium"
+                >Additional Income Sources</label
+              >
+              <div id="income-source-wrapper">
+                <div class="income-source flex gap-2 mb-2 flex-wrap">
+                  <input
+                    type="text"
+                    placeholder="Source of Income"
+                    class="source-name w-2/5 px-4 py-2 border rounded w-max focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <input
+                    type="date"
+                    placeholder="Date"
+                    class="income-date w-2/5 px-4 py-2 border rounded w-max focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <input
+                    type="number"
+                    placeholder="Amount"
+                    class="income-amount w-1/5 px-4 py-2 border rounded w-max focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              <button
+                type="button"
+                id="add-income-btn"
+                class="px-4 py-2 bg-green-500 text-white rounded mt-2 w-full sm:w-auto"
+              >
+                Add Income Source
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deductions Section -->
+        <section class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Deductions</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div>
+              <label for="investmentLossesOrGains" class="block font-medium"
+                >Investment Losses/Gains:</label
+              >
+              <input
+                type="number"
+                step="0.01"
+                step="0.01"
+                id="investmentLossesOrGains"
+                name="investmentLossesOrGains"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label for="numDependents" class="block font-medium"
+                >Number of Dependents</label
+              >
+              <input
+                type="number"
+                id="numDependents"
+                name="numDependents"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+            <div>
+              <label for="charitableDonations" class="block font-medium"
+                >Charitable Donations</label
+              >
+              <input
+                type="number"
+                step="0.01"
+                id="charitableDonations"
+                name="charitableDonations"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label for="mortgageInterest" class="block font-medium"
+                >Mortgage Interest</label
+              >
+              <input
+                type="number"
+                step="0.01"
+                id="mortgageInterest"
+                name="mortgageInterest"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label for="pensionScheme" class="block font-medium"
+                >Pension Scheme</label
+              >
+              <input
+                type="number"
+                step="0.01"
+                id="pensionScheme"
+                name="pensionScheme"
+                class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Tax Calculation Summary Section -->
+        <section class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Tax Calculation Summary</h2>
+          <div>
+            <label for="taxPayable" class="block font-medium"
+              >Tax Payable</label
+            >
+            <input
+              type="text"
+              id="taxPayable"
+              name="taxPayable"
+              class="w-full p-2 border border-gray-300 rounded bg-gray-100"
+              readonly
+            />
+          </div>
+        </section>
+
+        <button
+          type="submit"
+          class="w-full sm:w-auto px-6 py-3 bg-blue-500 text-white rounded"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="incomeTaxForm.js"></script>
+  </body>
+</html>
